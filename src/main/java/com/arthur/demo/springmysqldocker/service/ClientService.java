@@ -11,18 +11,18 @@ import com.arthur.demo.springmysqldocker.repository.ClientRepository;
 //ClientService.java
 @Service
 public class ClientService {
-	
+
 	@Autowired
 	private ClientRepository clientRepository;
 
 	public List<Client> getAllClients() {
 		return clientRepository.findAll();
 	}
-	
+
 	public void saveClients(List<Client> clients) {
 		clientRepository.saveAll(clients);
 	}
-	
+
 	public Client createClient(Client newClient) {
 		return clientRepository.save(newClient);
 	}

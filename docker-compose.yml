@@ -4,11 +4,16 @@ services:
   web:
     build:
       context: ./
-      dockerfile: ./DockerFile
+      dockerfile: ./Dockerfile
     restart: always
     image: arthur-springweb:latest
     ports:
       - "8080:8080"
+    environment:
+      - DB_HOST=mysql-server
+      - DB_NAME=my_database
+      - DB_USERNAME=admin
+      - DB_PASSWORD=admin  
     depends_on:
       - mysql-server
   
