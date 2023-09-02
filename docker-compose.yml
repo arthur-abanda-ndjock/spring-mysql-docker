@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: ./DockerFile
+    restart: always
+    image: arthur-springweb:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-server
+  
+  mysql-server:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+      - MYSQL_DATABASE=my_database
+    ports:
+      - "3306:3306"

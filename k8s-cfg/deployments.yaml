@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+   name: backend-deployments
+   labels:
+      tier: backend
+      db: mysql
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tier: backend
+      db: mysql
+  template:
+    metadata:
+      labels:
+        tier: backend
+        db: mysql
+    spec:
+      containers:
+       - image: mysql:5.7
+         imagePullPolicy: Always
+         name: mysql-server
+         env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: admin
+          - name: MYSQL_USER
+            value: admin
+          - name: MYSQL_PASSWORD
+            value: admin
+          - name: MYSQL_DATABASE
+            value: my_database
+            
+            
+         ports:
+          - containerPort: 3306
+      
