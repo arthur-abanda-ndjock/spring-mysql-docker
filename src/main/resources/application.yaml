@@ -17,6 +17,4 @@ spring:
         # dialect: org.hibernate.dialect.MySQL55Dialect  # MySQL 5.5 
 
 server:
-  port: 8080  # HTTP port
-
-# You can also specify other properties like logging, security configurations, etc.
+  port: 8080  # HTTP portgit 
